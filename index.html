@@ -18,5 +18,14 @@
         <img src="images/downarrow.png" width="50">
       </section>
     </header>
+    <script>
+      document.body.classList.toggle('js-loading');
+
+      window.addEventListener('load', showPage, false);
+
+      function showPage() {
+        document.body.classList.toggle('js-loading');
+      }
+    </script>
   </body>
 </html>

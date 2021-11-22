@@ -1,3 +1,9 @@
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
 header {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -33,11 +39,16 @@ header:before {
   content: "";
     left: 0;
   opacity: 0;
-  transform: translateY(-4rem);
   position: absolute;
     right: 0;
     top: 0;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
   z-index: -1;
+}
+
+.js-loaded header:before {
+  animation: none;
 }
 
 header:after {
@@ -114,15 +125,25 @@ header:after {
   -webkit-animation: no-transform 1s 1s ease-out forwards;
           animation: no-transform 1s 1s ease-out forwards;
   opacity: 0;
-  transform: translateY(4rem);
+  -webkit-transform: translateY(4rem);
+          transform: translateY(4rem);
 }
 
 /* Animations */
 
+@-webkit-keyframes no-transform {
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
 @keyframes no-transform {
   100% {
     opacity: 1;
-    transform: none;
+    -webkit-transform: none;
+            transform: none;
   }
 }
 
